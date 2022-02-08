@@ -1,6 +1,9 @@
 FROM debian:buster
 
-WORKDIR /build/
+# User defined env
+ARG STEAM_USERNAME
+ARG STEAM_PASSWORD
+ARG STEAM_GUARDCODE
 
 # Install deps for Nitrox build
 RUN set -x \
@@ -54,3 +57,12 @@ RUN set -x \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV PATH="${DOTNETDIR}:${STEAMCMDDIR}:${PATH}"
+ENV SUBNAUTICA_DIR="/game/subnautica"
+
+WORKDIR /app/
+
+COPY entrypoint.sh entrypoint.sh
+COPY nitrox_build.sh nitrox_build.sh
+COPY install_subnautica.sh install_subnautica.sh
+
+CMD cd /app/ && ./entrypoint.sh

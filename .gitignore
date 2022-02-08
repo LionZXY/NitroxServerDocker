@@ -1,3 +1,5 @@
 .idea
-build.sh.cmd
+build.sh
 NitroxServerDocker.iml
+data
+secrets.env

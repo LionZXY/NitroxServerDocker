@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  subnautica:
+    build: .
+    container_name: nitrox
+    env_file:
+      - secrets.env
+    volumes:
+      - ./data/subnautica:/game/subnautica
+      - ./data/steam/userdata:/steam/userdata
