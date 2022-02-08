@@ -13,8 +13,8 @@ if [ -z $GUARDCODE ]; then
 fi
 
 SUBNAUTICA_APPID=264710
-[ ! -d "${SUBNAUTICA_DIR}" ] && mkdir -p "${SUBNAUTICA_DIR}"
-steamcmd.sh +set_steam_guard_code ${STEAM_GUARDCODE} +login ${STEAM_USERNAME} ${STEAM_PASSWORD} +@sSteamCmdForcePlatformType windows +force_install_dir ${SUBNAUTICA_DIR} +app_update ${SUBNAUTICA_APPID} validate +quit
+[ ! -d "${SUBNAUTICA_INSTALLATION_PATH}" ] && mkdir -p "${SUBNAUTICA_INSTALLATION_PATH}"
+steamcmd.sh +set_steam_guard_code ${STEAM_GUARDCODE} +login ${STEAM_USERNAME} ${STEAM_PASSWORD} +@sSteamCmdForcePlatformType windows +force_install_dir ${SUBNAUTICA_INSTALLATION_PATH} +app_update ${SUBNAUTICA_APPID} validate +quit
 status=$?
 
 if [ $status -ne 0 ]; then

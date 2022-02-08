@@ -58,8 +58,8 @@ RUN set -x \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV PATH="${DOTNETDIR}:${STEAMCMDDIR}:${PATH}"
-ENV SUBNAUTICA_DIR="/game/subnautica"
-ENV SERVER_LOCATION="${SUBNAUTICA_DIR}"
+ENV SUBNAUTICA_INSTALLATION_PATH="/game/subnautica"
+ENV SERVER_LOCATION="/server"
 
 WORKDIR /app/
 
