@@ -6,6 +6,14 @@ services:
     container_name: nitrox
     env_file:
       - secrets.env
+    ports:
+      - "11000:11000"
     volumes:
-      - ./data/subnautica:/game/subnautica
-      - ./data/steam/userdata:/steam/userdata
+      - ./world:/server/world
+      - ./server.cfg:/server/server.cfg
+      - subnautica_content:/game/subnautica
+      - steamcmd_login_volume:/steam/Steam
+      
+volumes:
+  steamcmd_login_volume:
+  subnautica_content:
