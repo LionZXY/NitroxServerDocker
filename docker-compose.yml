@@ -7,7 +7,7 @@ services:
     env_file:
       - secrets.env
     ports:
-      - "11000:11000"
+      - "11000:11000/udp"
     volumes:
       - ./world:/server/world
       - ./server.cfg:/server/server.cfg
