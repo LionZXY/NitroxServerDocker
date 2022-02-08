@@ -7,11 +7,8 @@ mkdir -p ${BUILD_DIRECTORY}
 git clone https://github.com/SubnauticaNitrox/Nitrox.git "${BUILD_DIRECTORY}"
 cd "${BUILD_DIRECTORY}" || exit
 
-# Create path files to Nitrox Install-Dir
-# https://github.com/SubnauticaNitrox/Nitrox/blob/1c5c0d3a8edc90cc2fc46bbf9dc7a384ca39099d/NitroxModel/Discovery/InstallationFinders/ConfigFileGameFinder.cs
-echo "${SUBNAUTICA_DIR}" > $HOME/path.txt
-cat path.txt
-
+# Dirty workaround. We don't have any other way to provide the installDir (or i haven't found it)
+# https://github.com/SubnauticaNitrox/Nitrox/blob/62e67c6de9/NitroxModel/Discovery/InstallationFinders/GameInCurrentDirectoryFinder.cs
 cd "${SUBNAUTICA_DIR}" && dotnet run --project "${BUILD_DIRECTORY}/Nitrox.BuildTool"
 cd "${BUILD_DIRECTORY}" || exit
 dotnet build
