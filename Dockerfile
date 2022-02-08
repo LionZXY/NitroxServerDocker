@@ -4,6 +4,7 @@ FROM debian:buster
 ARG STEAM_USERNAME
 ARG STEAM_PASSWORD
 ARG STEAM_GUARDCODE
+ARG NITROX_VERSION="1.5.0.1"
 
 # Install deps for Nitrox build
 RUN set -x \
@@ -58,6 +59,7 @@ RUN set -x \
 
 ENV PATH="${DOTNETDIR}:${STEAMCMDDIR}:${PATH}"
 ENV SUBNAUTICA_DIR="/game/subnautica"
+ENV SERVER_LOCATION="${SUBNAUTICA_DIR}"
 
 WORKDIR /app/
 
